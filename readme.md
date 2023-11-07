@@ -1,0 +1,1 @@
+Unity requires instalation of NewtonSoft-Json. To install, go to "Package Manager -> Add from git URL -> enter 'com.unity.nuget.newtonsoft-json'".
