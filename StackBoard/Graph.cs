@@ -6,25 +6,28 @@ namespace StackBoard
     [Serializable]
     public class Graph : Node
     {
+        public int count { get; private set; }
         public string xLabel { get; private set; }
         public string yLabel { get; private set; }
         public LinkedList<KeyFrame> keyFrames { get; private set; }
 
-        public Graph() { }
-        public Graph(string name, string description, string xLabel, string yLabel) : base(name, description)
+
+        private Graph() { }
+        public Graph(string name, string description, string xLabel, string yLabel) : base(name, description, typeof(Graph))
         {
+            count = 0;
             this.xLabel = xLabel;
             this.yLabel = yLabel;
             keyFrames = new LinkedList<KeyFrame>();
         }
 
-        public void Append(float x, float y)
+        /// <summary>
+        /// Append a new value to the next step.
+        /// </summary>
+        /// <param name="value"></param>
+        public void Append(float value)
         {
-            keyFrames.AddLast(new KeyFrame(x, y));
-        }
-        public void Append(KeyFrame k)
-        {
-            keyFrames.AddLast(k);
+            keyFrames.AddLast(new KeyFrame(count++, value));
         }
         public class KeyFrame
         {
