@@ -6,7 +6,7 @@ namespace StackBoard
     public class Checkpoint : Node
     {
         public string serializedModel { get; private set; }
-
+        public string url { get; private set; }
         private Checkpoint() { }
         /// <summary>
         /// Create a new checkpoint for the serialized model.
@@ -15,6 +15,7 @@ namespace StackBoard
         public Checkpoint(string description, string serializedModel) : base("Checkpoint", description, typeof(Checkpoint))
         {
             this.serializedModel = serializedModel;
+            url = "";
         }
     }
 }
